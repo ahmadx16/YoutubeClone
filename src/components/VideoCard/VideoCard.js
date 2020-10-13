@@ -1,17 +1,16 @@
 import React from 'react'
+import "./VideoCard.scss"
 
-
-const VideosCard = ({title, description, thumbnailSrc}) => {
+const VideosCard = ({ title, channelTitle, thumbnailSrc }) => {
 
     return (
-        <div className="card" style={{width: 18+"rem", display:"inline-block" }}>
-            <img className="card-img-top" src={thumbnailSrc} alt="Image" />
-            <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                <p className="card-text">{description}</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+            <div className="card" style={{minWidth: "18rem"}} >
+                <img className="card-img-top" src={thumbnailSrc} alt="Image" />
+                <div className="card-body">
+                    <h5 className="card-title">{title}</h5>
+                    <p className="card-text"><small>{channelTitle}</small></p>
+                </div>
             </div>
-        </div>
     )
 }
 

@@ -5,8 +5,8 @@ const searchVideos = async (searchText) => {
 
     try {
         const videosResponse = await axios.get(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchText}&type=video&key=AIzaSyDRW8Omm-brsqLXQ4xJarzScNROnsMurPA`);
-
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchText}&type=video&maxResults=50&key=AIzaSyDRW8Omm-brsqLXQ4xJarzScNROnsMurPA`);
+        console.log(videosResponse)
         return videosResponse
 
     } catch (err) {
@@ -16,6 +16,7 @@ const searchVideos = async (searchText) => {
                 error: "Network Error: Cannot connect to Youtube API"
             }
         }
+        console.log(err)
         return {
             error: "An Error occured, Please contact support"
         }

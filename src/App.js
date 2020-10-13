@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Dashboard from './pages/Dashboard'
+import Video from './pages/Video'
 import Navbar from './components/Navbar/Navbar'
 import videoDataContext, { VideoDataProvider } from "./contexts/videoDataContext"
 
@@ -32,6 +33,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={Dashboard} />
+          <Route exact path='/detail' component={Video} />
         </Switch>
       </Router>
     </VideoDataProvider>
