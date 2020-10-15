@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import SearchIcon from "../Icons/SearchIcon"
 import searchVideos from "../../services/searchVideos"
 import VideoDataContext from '../../contexts/videoDataContext';
-import "./SearchForm.scss"
 
 const SearchForm = () => {
 

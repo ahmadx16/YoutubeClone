@@ -10,12 +10,14 @@ const VideoList = () => {
         listVideos = videosData.data.items.map((videoItem) =>
             <VideoCard
                 key={videoItem.snippet.channelTitle + videoItem.snippet.title}
+                videoId={videoItem.id.videoId}
                 title={videoItem.snippet.title}
                 channelTitle={videoItem.snippet.channelTitle}
-                thumbnailSrc={videoItem.snippet.thumbnails.high.url} />
+                thumbnailSrc={videoItem.snippet.thumbnails.high.url} 
+                
+            />
         )
     }
-
     return (
        listVideos
     )

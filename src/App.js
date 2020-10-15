@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Dashboard from './pages/Dashboard'
-import Video from './pages/Video'
+import VideoScreen from './pages/VideoScreen'
 import Navbar from './components/Navbar/Navbar'
-import videoDataContext, { VideoDataProvider } from "./contexts/videoDataContext"
+import { VideoDataProvider } from "./contexts/videoDataContext"
 
 import searchVideos from "./services/searchVideos"
 
@@ -12,15 +12,16 @@ import "./styles/globalStyles.scss"
 
 
 function App() {
-
-  const search = async (searchText) => {
-    const videoData = await searchVideos(searchText)
-    updateVideoData(videoData)
-  }
+  
   // initialize the dashboard data with static query
   useEffect(() => {
     search("Bastile")
   }, [])
+  
+  const search = async (searchText) => {
+    const videoData = await searchVideos(searchText)
+    updateVideoData(videoData)
+  }
 
   const [videoData, setVideoData] = useState("")
   const updateVideoData = (newVideoData) => {
@@ -33,7 +34,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={Dashboard} />
-          <Route exact path='/detail' component={Video} />
+          <Route exact path='/:videoId' component={VideoScreen} />
         </Switch>
       </Router>
     </VideoDataProvider>

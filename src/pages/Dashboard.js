@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import VideoList from "../components/VideosList/VideosList"
 
 const Dashboard = () => {

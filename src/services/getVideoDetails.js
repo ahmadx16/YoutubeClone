@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-const searchVideos = async (searchText) => {
-    
+const searchVideos = async (videoId) => {
+
     // makes post request to backend and returns user token
     try {
         const videosResponse = await axios.get(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&q=
-            ${searchText}&type=video&maxResults=50&key=AIzaSyDRW8Omm-brsqLXQ4xJarzScNROnsMurPA`);
+            `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet&part=statistics&key=AIzaSyDRW8Omm-brsqLXQ4xJarzScNROnsMurPA`);
         return videosResponse
 
     } catch (err) {
