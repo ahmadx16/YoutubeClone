@@ -10,10 +10,10 @@ const VideoScreen = ({ match }) => {
         videoId = match.params.videoId
     return (
         <div className="row">
-            <div className="col-8" >
+            <div className="col-md-8" >
                 <Video videoId={videoId} />
             </div>
-            <div className="col-4" >
+            <div className="col-md-4" >
                 <span>Up Next</span>
                 <VideoList />
             </div>
