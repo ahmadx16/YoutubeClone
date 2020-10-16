@@ -20,6 +20,8 @@ const SearchForm = () => {
             return
         }
         updateVideoData(videosData)
+        
+        // navigate to dashboard
         history.push("/")
     }
 
@@ -27,7 +29,7 @@ const SearchForm = () => {
         <form className="form-inline" onSubmit={handleSearchFormSubmit}>
             <input className="form-control"
                 type="search"
-                placeholder="Search"
+                placeholder="Search Video"
                 onChange={handleOnSearchTextChange}
                 value={searchText}
                 />
@@ -35,7 +37,6 @@ const SearchForm = () => {
                 Search
             </button>
         </form>
-
     )
 }
 

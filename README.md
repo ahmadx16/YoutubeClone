@@ -1,6 +1,6 @@
 # Youtube Clone (ReactJs and YouTube API v3)
 
-Using this application you can search and play videos just like YouTube. This application uses an [YouTube API v3](https://developers.google.com/youtube/v3) to extract video data and details.
+Using this application you can search and play videos just like YouTube. This application uses the [YouTube API v3](https://developers.google.com/youtube/v3) to extract video data and details.
 
 ## Technical Description
 This application is built with [React](https://reactjs.org/) and context API. React helps creating reusable components quite easily that can be used across various projects.

@@ -12,7 +12,6 @@ const Video = ({videoId }) => {
             <YouTube id={videoId} />
             <VideoDetail videoId={videoId}/>
         </div>
-
     )
 }
 

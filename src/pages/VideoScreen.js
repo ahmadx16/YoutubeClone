@@ -8,6 +8,7 @@ const VideoScreen = ({ match }) => {
     let videoId = ""
     if (match)
         videoId = match.params.videoId
+
     return (
         <div className="row">
             <div className="col-md-8" >
@@ -17,9 +18,7 @@ const VideoScreen = ({ match }) => {
                 <span>Up Next</span>
                 <VideoList />
             </div>
-
         </div>
-
     )
 }
 

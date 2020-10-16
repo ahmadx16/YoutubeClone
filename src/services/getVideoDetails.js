@@ -7,7 +7,9 @@ const getVideoDetails = async (videoId) => {
 
     try {
         const videosResponse = await axios.get(
-            `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=snippet&part=statistics&key=AIzaSyDRW8Omm-brsqLXQ4xJarzScNROnsMurPA`);
+            "https://www.googleapis.com/youtube/v3/videos?id=" +
+            videoId +
+            "&part=snippet&part=statistics&key=AIzaSyDRW8Omm-brsqLXQ4xJarzScNROnsMurPA");
 
         const processedVideoDetail = processVideoDetail(videosResponse)
         return processedVideoDetail
