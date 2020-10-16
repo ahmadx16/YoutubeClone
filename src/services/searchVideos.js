@@ -1,25 +1,32 @@
 import axios from 'axios';
+import {
+    handleErrors
+} from "../utils"
 
 const searchVideos = async (searchText) => {
-    
-    // makes post request to backend and returns user token
+
     try {
         const videosResponse = await axios.get(
             `https://www.googleapis.com/youtube/v3/search?part=snippet&q=
             ${searchText}&type=video&maxResults=50&key=AIzaSyDRW8Omm-brsqLXQ4xJarzScNROnsMurPA`);
-        return videosResponse
+        const processedVideoResponse = processVideoResponse(videosResponse)
+        return processedVideoResponse
 
     } catch (err) {
-        // No response indicating a network error
-        if (!err.response) {
-            return {
-                error: "Network Error: Cannot connect to Youtube API"
-            }
-        }
-        return {
-            error: "An Error occured, Please contact support"
-        }
+        return handleErrors(err)
     }
+}
+
+
+const processVideoResponse = (videosResponse) => {
+    return videosResponse.data.items.map((videoItem) => {
+        return {
+            videoId: videoItem.id.videoId,
+            title: videoItem.snippet.title,
+            channelTitle: videoItem.snippet.channelTitle,
+            thumbnailSrc: videoItem.snippet.thumbnails.high.url
+        }
+    })
 }
 
 export default searchVideos;

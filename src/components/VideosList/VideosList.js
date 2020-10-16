@@ -6,14 +6,14 @@ const VideoList = () => {
 
     const videosData = useContext(VideoDataContext).videoData
     let listVideos = []
-    if (videosData) {
-        listVideos = videosData.data.items.map((videoItem) =>
+    if (videosData.length) {
+        listVideos = videosData.map((videoItem) =>
             <VideoCard
-                key={videoItem.snippet.channelTitle + videoItem.snippet.title}
-                videoId={videoItem.id.videoId}
-                title={videoItem.snippet.title}
-                channelTitle={videoItem.snippet.channelTitle}
-                thumbnailSrc={videoItem.snippet.thumbnails.high.url} 
+                key={videoItem.channelTitle + videoItem.title}
+                videoId={videoItem.videoId}
+                title={videoItem.title}
+                channelTitle={videoItem.channelTitle}
+                thumbnailSrc={videoItem.thumbnailSrc} 
                 
             />
         )

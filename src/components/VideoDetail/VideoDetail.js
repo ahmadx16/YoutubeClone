@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import getVideoDetail from '../../services/getVideoDetails'
 
+import { addCommasToNumber } from "../../utils"
+
 
 const VideoDetail = ({ videoId }) => {
 
@@ -9,50 +11,42 @@ const VideoDetail = ({ videoId }) => {
         channelTitle: "",
         description: "",
         viewCount: 0,
-        likeCount: 0,
-        dislikeCount: 0
     })
 
+    // Loads Video Statistics and Snippet via API
     useEffect(() => {
-        getData()
+        getVideoData()
     }, [videoId])
 
-    const getData = async () => {
-        var videoDataResponse = await getVideoDetail(videoId)
+    const getVideoData = async () => {
+        var videoDetails = await getVideoDetail(videoId)
 
-        console.log(videoDataResponse.data.items[0])
-        var videoSnippet = videoDataResponse.data.items[0].snippet
-
-        var videoStatistics = videoDataResponse.data.items[0].statistics
         setVideoData({
-            title: videoSnippet.title,
-            channelTitle: videoSnippet.channelTitle,
-            description: videoSnippet.description,
-            viewCount: videoStatistics.viewCount,
-            likeCount: videoStatistics.likeCount,
-            dislikeCount: videoStatistics.dislikeCount
+            title: videoDetails.title,
+            channelTitle: videoDetails.channelTitle,
+            description: videoDetails.description,
+            viewCount: videoDetails.viewCount,
         })
     }
 
     return (
         <div>
             <div className="row mt-2">
-                <h4>{videoData.title}</h4>
+                <div className="col">
+                    <h3>
+                        {videoData.title}
+                    </h3>
+                </div>
             </div>
             <div className="row  mt-2">
                 <div className="col">
-                    {videoData.viewCount} views 
-                </div>
-                <div className="col">
-                    <i className="fa fa-thumbs-o-up mr-2"></i>
-                    {videoData.likeCount}
-                    <i className="fa fa-thumbs-o-down ml-2 mr-2"></i>
-                    {videoData.dislikeCount}  
+                    {addCommasToNumber(videoData.viewCount)} views
                 </div>
             </div>
+            <hr ></hr>
             <div className="row mt-5">
                 <div className="col">
-                    {videoData.channelTitle}  
+                    <strong>{videoData.channelTitle}</strong>
                 </div>
             </div>
             <div className="row  mt-2">

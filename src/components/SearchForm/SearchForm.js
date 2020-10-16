@@ -14,6 +14,10 @@ const SearchForm = () => {
     const handleSearchFormSubmit = async (e) => {
         e.preventDefault();
         const videosData = await searchVideos(searchText)
+        if (videosData.error) {
+            alert(videosData.error)
+            return
+        }
         updateVideoData(videosData)
     }
 

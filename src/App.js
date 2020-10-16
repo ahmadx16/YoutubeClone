@@ -15,7 +15,7 @@ function App() {
   
   // initialize the dashboard data with static query
   useEffect(() => {
-    search("Bastile")
+    search("ReactJs")
   }, [])
   
   const search = async (searchText) => {
