@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import SearchIcon from "../Icons/SearchIcon"
+import React from 'react'
 import SearchForm from "../../components/SearchForm/SearchForm"
 
 

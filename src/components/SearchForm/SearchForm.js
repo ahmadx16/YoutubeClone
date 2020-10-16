@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react'
-import SearchIcon from "../Icons/SearchIcon"
+import {useHistory} from "react-router-dom"
 import searchVideos from "../../services/searchVideos"
 import VideoDataContext from '../../contexts/videoDataContext';
 
 const SearchForm = () => {
 
+    let history = useHistory()
     const updateVideoData = useContext(VideoDataContext).updateVideoData
 
     const [searchText, setSearchText] = useState("")
@@ -19,6 +20,7 @@ const SearchForm = () => {
             return
         }
         updateVideoData(videosData)
+        history.push("/")
     }
 
     return (
@@ -30,7 +32,7 @@ const SearchForm = () => {
                 value={searchText}
                 />
             <button className="btn btn-primary" type="submit" >
-                <SearchIcon />
+                Search
             </button>
         </form>
 

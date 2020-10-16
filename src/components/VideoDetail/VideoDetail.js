@@ -20,13 +20,7 @@ const VideoDetail = ({ videoId }) => {
 
     const getVideoData = async () => {
         var videoDetails = await getVideoDetail(videoId)
-
-        setVideoData({
-            title: videoDetails.title,
-            channelTitle: videoDetails.channelTitle,
-            description: videoDetails.description,
-            viewCount: videoDetails.viewCount,
-        })
+        setVideoData(videoDetails)
     }
 
     return (

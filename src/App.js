@@ -12,12 +12,12 @@ import "./styles/globalStyles.scss"
 
 
 function App() {
-  
+
   // initialize the dashboard data with static query
   useEffect(() => {
     search("ReactJs")
   }, [])
-  
+
   const search = async (searchText) => {
     const videoData = await searchVideos(searchText)
     updateVideoData(videoData)
@@ -30,8 +30,8 @@ function App() {
 
   return (
     <VideoDataProvider value={{ videoData: videoData, updateVideoData: updateVideoData }}>
-      <Navbar />
       <Router>
+        <Navbar />
         <Switch>
           <Route exact path='/' component={Dashboard} />
           <Route exact path='/:videoId' component={VideoScreen} />
