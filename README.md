@@ -11,11 +11,8 @@ Upon searching a video user is shown 50 relevent videos to the query on the sear
 
 It has a responsive interface!
 
-### Video Search Screen
-![Video Search](readme_files/video_search.png)
-
-### Video Display Screen
-![Video Search](readme_files/video_detail.png)
+### Demo
+![Demo](readme_files/youtube_demo.gif)
 
 ## Instructions
 
